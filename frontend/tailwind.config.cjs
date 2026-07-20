@@ -1,0 +1,70 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./index.html', './src/**/*.{vue,ts,tsx,js,jsx}'],
+  darkMode: 'class',
+  theme: {
+    container: { center: true, padding: { DEFAULT: '1.25rem', md: '2rem' } },
+    extend: {
+      // Larger global type scale — body/UI text "much bigger" (headlines use clamp() per-section).
+      fontSize: {
+        xs:    ['0.8125rem', { lineHeight: '1.15rem' }],
+        sm:    ['1rem',      { lineHeight: '1.5rem' }],
+        base:  ['1.125rem',  { lineHeight: '1.7rem' }],
+        lg:    ['1.25rem',   { lineHeight: '1.8rem' }],
+        xl:    ['1.375rem',  { lineHeight: '1.85rem' }],
+        '2xl': ['1.625rem',  { lineHeight: '2rem' }],
+        '3xl': ['2rem',      { lineHeight: '2.3rem' }],
+      },
+      colors: {
+        bg:       'rgb(var(--bg) / <alpha-value>)',
+        surface:  'rgb(var(--surface) / <alpha-value>)',
+        surface2: 'rgb(var(--surface-2) / <alpha-value>)',
+        line:     'rgb(var(--line) / <alpha-value>)',
+        text:     'rgb(var(--text) / <alpha-value>)',
+        text2:    'rgb(var(--text-2) / <alpha-value>)',
+        text3:    'rgb(var(--text-3) / <alpha-value>)',
+        accent:       'rgb(var(--accent) / <alpha-value>)',
+        accentStrong: 'rgb(var(--accent-strong) / <alpha-value>)',
+        accentSoft:   'rgb(var(--accent-soft) / <alpha-value>)',
+        glow:     'rgb(var(--glow-rgb) / <alpha-value>)',
+        blue: {
+          50:  'rgb(var(--blue-50) / <alpha-value>)',
+          100: 'rgb(var(--blue-100) / <alpha-value>)',
+          200: 'rgb(var(--blue-200) / <alpha-value>)',
+          300: 'rgb(var(--blue-300) / <alpha-value>)',
+          400: 'rgb(var(--blue-400) / <alpha-value>)',
+          500: 'rgb(var(--blue-500) / <alpha-value>)',
+          600: 'rgb(var(--blue-600) / <alpha-value>)',
+          700: 'rgb(var(--blue-700) / <alpha-value>)',
+        },
+      },
+      fontFamily: {
+        display: ['"Clash Display"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans:    ['"Satoshi"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono:    ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+      },
+      letterSpacing: { tightish: '-0.012em', tighter2: '-0.03em', wide2: '0.2em' },
+      borderRadius: { xl2: '1.25rem', '2xl2': '1.75rem' },
+      maxWidth: { content: '1200px' },
+      boxShadow: { glow: 'var(--shadow-glow)', soft: 'var(--shadow-soft)' },
+      transitionTimingFunction: {
+        out: 'var(--ease-out)', soft: 'var(--ease-soft)', spring: 'var(--ease-spring)',
+      },
+      animation: {
+        'drift-a': 'driftA 24s ease-in-out infinite',
+        'drift-b': 'driftB 30s ease-in-out infinite',
+        'drift-c': 'driftC 36s ease-in-out infinite',
+        'float-slow': 'floatSlow 6s ease-in-out infinite',
+        'scroll-hint': 'scrollHint 1.8s ease-in-out infinite',
+      },
+      keyframes: {
+        driftA: { '0%,100%': { transform: 'translate(0,0) scale(1)' }, '50%': { transform: 'translate(6%,-8%) scale(1.12)' } },
+        driftB: { '0%,100%': { transform: 'translate(0,0) scale(1)' }, '50%': { transform: 'translate(-7%,5%) scale(1.08)' } },
+        driftC: { '0%,100%': { transform: 'translate(0,0) scale(1)' }, '50%': { transform: 'translate(4%,9%) scale(1.15)' } },
+        floatSlow: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
+        scrollHint: { '0%,100%': { transform: 'translateY(0)', opacity: '.4' }, '50%': { transform: 'translateY(6px)', opacity: '1' } },
+      },
+    },
+  },
+  plugins: [require('@tailwindcss/typography')],
+}

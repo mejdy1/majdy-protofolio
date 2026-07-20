@@ -1,0 +1,516 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/Admin/**/*';
+@source '../../../../resources/views/filament/admin/**/*';
+
+/* =====================================================================
+   Majdy — Filament Admin Theme
+   Deep ink with a royal / ambient blue accent.
+   ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700&display=swap');
+
+:root,
+.fi-body {
+  --ink: #0B0E16;
+  --ink-2: #12151F;
+  --ink-3: #1A1E2B;
+  --bone: #E6EAF5;
+  --bone-dim: #AEB6CC;
+  --ash: #6B7088;
+  --parchment: #EEF2FB;
+  --vermilion: #3B6FF6;
+  --vermdeep: #1D4ED8;
+  --pollen: #E8C547;
+  --verdigris: #3F8F77;
+  --rule: rgba(200, 210, 238, 0.10);
+  --rule-strong: rgba(200, 210, 238, 0.20);
+}
+
+/* Gray-palette remap (HISTORY invariant #5) — Filament's neutral scale is
+   rebuilt from parchment → ink so panels never render as grey squares
+   floating on the codex palette. Light mode reads as aged paper, dark mode
+   as layered ink. */
+:root,
+.fi-body {
+  --gray-50:  oklch(0.95 0.018 85);   /* parchment */
+  --gray-100: oklch(0.91 0.02 84);
+  --gray-200: oklch(0.84 0.022 82);
+  --gray-300: oklch(0.74 0.02 80);
+  --gray-400: oklch(0.62 0.016 75);
+  --gray-500: oklch(0.5 0.012 70);
+  --gray-600: oklch(0.4 0.01 262);
+  --gray-700: oklch(0.32 0.012 262);  /* ink-3 territory */
+  --gray-800: oklch(0.25 0.012 262);  /* ink-2 */
+  --gray-900: oklch(0.2 0.012 262);   /* ink */
+  --gray-950: oklch(0.16 0.012 262);
+}
+.dark,
+.dark .fi-body {
+  --gray-50:  oklch(0.94 0.018 85);
+  --gray-100: oklch(0.88 0.02 84);
+  --gray-200: oklch(0.78 0.018 82);
+  --gray-300: oklch(0.66 0.014 78);
+  --gray-400: oklch(0.55 0.012 74);
+  --gray-500: oklch(0.46 0.01 262);
+  --gray-600: oklch(0.36 0.012 262);
+  --gray-700: oklch(0.28 0.012 262);
+  --gray-800: oklch(0.23 0.012 262);
+  --gray-900: oklch(0.19 0.012 262);
+  --gray-950: oklch(0.15 0.012 262);
+}
+
+/* ============================ Base ================================== */
+.dark .fi-body,
+.dark body {
+  background:
+    /* faint blueprint grid */
+    linear-gradient(rgba(200, 210, 238, .035) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, rgba(200, 210, 238, .035) 1px, transparent 1px) 0 0 / 32px 32px,
+    radial-gradient(140% 90% at 50% 0%, transparent 0%, rgba(0,0,0,.35) 100%),
+    var(--ink) !important;
+  color: var(--bone);
+  font-family: 'Satoshi', ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark code, .dark pre, .dark .font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.dark h1, .dark h2, .dark h3,
+.dark .fi-header-heading, .dark .fi-section-header-heading {
+  font-family: 'Clash Display', ui-sans-serif, sans-serif;
+  letter-spacing: -0.028em;
+  font-variation-settings: 'opsz' 144;
+}
+
+::selection { background: var(--vermilion); color: var(--parchment); }
+
+/* ============================ Topbar ================================ */
+.dark .fi-topbar {
+  background-color: rgba(14, 14, 20, 0.7) !important;
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border-bottom: 1px solid var(--rule-strong);
+  position: relative;
+}
+.dark .fi-topbar::after {
+  content: '';
+  position: absolute; inset-inline: 0; bottom: -3px;
+  height: 1px;
+  background-image: repeating-linear-gradient(90deg, var(--bone) 0 6px, transparent 6px 12px);
+  opacity: .25;
+}
+
+/* ============================ Sidebar =============================== */
+.dark .fi-sidebar {
+  background: rgba(22, 22, 28, .85) !important;
+  backdrop-filter: blur(14px);
+  border-right: 1px solid var(--rule);
+}
+
+.dark .fi-sidebar-header {
+  border-bottom: 1px solid var(--rule);
+}
+
+.dark .fi-logo {
+  font-family: 'Clash Display', ui-sans-serif, sans-serif !important;
+  font-style: italic !important;
+  font-weight: 600 !important;
+  font-variation-settings: 'opsz' 144 !important;
+  letter-spacing: -0.03em !important;
+  font-size: 1.7rem !important;
+  color: var(--bone) !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+}
+.dark .fi-logo::after {
+  content: '.';
+  color: var(--vermilion);
+}
+
+.dark .fi-sidebar-nav-groups { gap: 1rem; }
+
+.dark .fi-sidebar-nav-group-label {
+  color: var(--bone-dim);
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding-left: .25rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .35rem;
+  margin-bottom: .35rem;
+}
+
+.dark .fi-sidebar-item > a,
+.dark .fi-sidebar-item > button {
+  border-radius: 4px;
+  transition: all .25s cubic-bezier(.16,.84,.44,1);
+  position: relative;
+}
+
+.dark .fi-sidebar-item > a:hover,
+.dark .fi-sidebar-item > button:hover {
+  background: rgba(59, 111, 246, 0.08);
+  color: var(--bone) !important;
+  transform: translateX(2px);
+}
+
+.dark .fi-sidebar-item-active > a,
+.dark .fi-sidebar-item-active > button {
+  background: rgba(59, 111, 246, .12) !important;
+  color: var(--parchment) !important;
+}
+.dark .fi-sidebar-item-active > a::before,
+.dark .fi-sidebar-item-active > button::before {
+  content: '';
+  position: absolute;
+  left: -8px; top: 12%;
+  width: 3px; height: 76%;
+  border-radius: 0;
+  background: var(--vermilion);
+}
+
+/* ============================ Section / Card ======================== */
+.dark .fi-section,
+.dark .fi-ta-ctn,
+.dark .fi-fo-component-ctn {
+  background-color: rgba(22, 22, 28, .55) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--rule) !important;
+  border-radius: 6px !important;
+  position: relative;
+}
+.dark .fi-section::before,
+.dark .fi-ta-ctn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 24px; height: 24px;
+  border-top: 1.5px solid var(--vermilion);
+  border-left: 1.5px solid var(--vermilion);
+  border-top-left-radius: 6px;
+}
+.dark .fi-section::after,
+.dark .fi-ta-ctn::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 24px; height: 24px;
+  border-bottom: 1.5px solid var(--vermilion);
+  border-right: 1.5px solid var(--vermilion);
+  border-bottom-right-radius: 6px;
+}
+
+.dark .fi-section-header { border-bottom: 1px solid var(--rule); }
+.dark .fi-section-header-heading {
+  font-family: 'Clash Display', ui-sans-serif, sans-serif !important;
+  font-style: italic;
+  font-weight: 500;
+  font-variation-settings: 'opsz' 60;
+  color: var(--bone) !important;
+}
+
+/* ============================ Stats widget ========================= */
+.dark .fi-wi-stats-overview-stat {
+  background-color: rgba(22, 22, 28, .6) !important;
+  border: 1px solid var(--rule) !important;
+  border-radius: 6px !important;
+  overflow: hidden;
+  position: relative;
+  transition: transform .3s cubic-bezier(.16,.84,.44,1);
+}
+.dark .fi-wi-stats-overview-stat:hover {
+  transform: translateY(-2px);
+}
+.dark .fi-wi-stats-overview-stat-value {
+  font-family: 'Clash Display', ui-sans-serif, sans-serif !important;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2.2rem !important;
+  font-variation-settings: 'opsz' 144;
+  color: var(--bone);
+}
+.dark .fi-wi-stats-overview-stat-label {
+  color: var(--bone-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.66rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ============================ Buttons — wax seals =================== */
+.dark .fi-btn[data-color="primary"] {
+  background: var(--vermilion) !important;
+  border: none !important;
+  color: var(--parchment) !important;
+  border-radius: 3px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  box-shadow:
+    2px 2px 0 var(--vermdeep),
+    inset 0 -2px 0 rgba(0,0,0,.18);
+  transition: transform .2s cubic-bezier(.16,.84,.44,1),
+              box-shadow .25s, background-color .2s;
+}
+.dark .fi-btn[data-color="primary"]:hover {
+  transform: translate(-1px, -1px);
+  box-shadow:
+    3px 3px 0 var(--vermdeep),
+    inset 0 -2px 0 rgba(0,0,0,.18);
+}
+.dark .fi-btn[data-color="primary"]:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0 0 0 var(--vermdeep);
+}
+
+.dark .fi-btn:not([data-color="primary"]) {
+  background: transparent !important;
+  border: 1px solid var(--rule-strong) !important;
+  color: var(--bone) !important;
+  border-radius: 3px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px !important;
+}
+.dark .fi-btn:not([data-color="primary"]):hover {
+  background: rgba(200, 210, 238, .05) !important;
+  border-color: var(--bone) !important;
+}
+
+/* ============================ Tables ================================ */
+.dark .fi-ta-table { background-color: transparent !important; }
+
+/* v2 row-hover fix backported (HISTORY invariant #1):
+   hover is ONLY a quiet background-color tint — no transforms,
+   no pseudo-element bars that pop in and shift the eye. */
+.dark .fi-ta-row {
+  transition: background-color .2s cubic-bezier(.2,.8,.2,1);
+  position: relative;
+}
+.dark .fi-ta-row:hover {
+  background-color: rgba(59, 111, 246, .06) !important;
+}
+.dark .fi-ta-row::before,
+.dark .fi-ta-row::after,
+.dark .fi-ta-row:hover::before,
+.dark .fi-ta-row:hover::after { content: none !important; display: none !important; }
+
+.dark .fi-ta-header-cell {
+  background-color: rgba(22, 22, 28, .55) !important;
+  color: var(--bone-dim) !important;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  font-weight: 500 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+/* numeric mono */
+.dark .fi-ta-text-item, .dark .fi-ta-text-value {
+  font-feature-settings: 'tnum';
+}
+
+/* ============================ Form fields =========================== */
+.dark .fi-input,
+.dark .fi-select-input,
+.dark textarea.fi-input {
+  background-color: rgba(14, 14, 20, .6) !important;
+  border: 1px solid var(--rule-strong) !important;
+  color: var(--bone) !important;
+  border-radius: 3px !important;
+  font-family: 'Satoshi', sans-serif;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.dark .fi-input:focus,
+.dark .fi-select-input:focus,
+.dark textarea.fi-input:focus {
+  border-color: var(--vermilion) !important;
+  box-shadow: 0 0 0 2px rgba(59, 111, 246, .25) !important;
+  outline: none;
+}
+
+.dark .fi-fo-field-wrp-label,
+.dark .fi-fo-fieldset-label {
+  font-family: 'JetBrains Mono', monospace !important;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: 11px !important;
+  color: var(--bone-dim) !important;
+  font-weight: 500 !important;
+}
+
+/* ============================ Badges ================================ */
+.dark .fi-badge {
+  border: 1px solid currentColor !important;
+  background: rgba(200, 210, 238, .04) !important;
+  border-radius: 2px !important;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 10.5px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* ============================ Login — frontispiece ================= */
+.dark .fi-simple-layout {
+  background:
+    radial-gradient(140% 90% at 50% 0%, transparent 0%, rgba(0, 0, 0, .55) 100%),
+    linear-gradient(rgba(200, 210, 238, .035) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, rgba(200, 210, 238, .035) 1px, transparent 1px) 0 0 / 32px 32px,
+    var(--ink) !important;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark .fi-simple-layout::before {
+  /* Wyrm coiling decoration — minimal CSS-only dragon hint */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(800px 400px at 50% 50%,
+      rgba(59, 111, 246, .08), transparent 70%);
+  pointer-events: none;
+}
+
+.dark .fi-simple-layout::after {
+  /* Header and bottom flourish */
+  content: 'Majdy · Portfolio';
+  position: absolute;
+  top: 36px; left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+}
+
+.dark .fi-simple-main {
+  background: rgba(22, 22, 28, .72) !important;
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--rule-strong) !important;
+  border-radius: 6px !important;
+  position: relative;
+  box-shadow:
+    0 30px 80px -20px rgba(0,0,0,.6),
+    inset 0 1px 0 rgba(255,255,255,.04);
+  animation: studio-rise .9s cubic-bezier(.16,.84,.44,1.05) both;
+}
+.dark .fi-simple-main::before,
+.dark .fi-simple-main::after {
+  content: '';
+  position: absolute;
+  width: 26px; height: 26px;
+}
+.dark .fi-simple-main::before { top: 0; left: 0; border-top: 1.5px solid var(--vermilion); border-left: 1.5px solid var(--vermilion); }
+.dark .fi-simple-main::after  { bottom: 0; right: 0; border-bottom: 1.5px solid var(--vermilion); border-right: 1.5px solid var(--vermilion); }
+
+@keyframes studio-rise {
+  from { opacity: 0; transform: translateY(28px) scale(.96); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+.dark .fi-simple-header h1 {
+  font-family: 'Clash Display', ui-sans-serif, sans-serif !important;
+  font-style: italic;
+  font-weight: 500 !important;
+  font-variation-settings: 'opsz' 144;
+  letter-spacing: -0.04em !important;
+  font-size: 2.6rem !important;
+  color: var(--bone) !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+}
+
+/* ============================ Loader (candle pulse) ================= */
+.dark .fi-loading-indicator,
+.dark .fi-modal-loading {
+  color: var(--vermilion) !important;
+}
+
+/* ============================ Modals ================================ */
+.dark .fi-modal-window {
+  background: rgba(22, 22, 28, .94) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--rule-strong) !important;
+  border-radius: 6px !important;
+  position: relative;
+  animation: studio-rise .35s cubic-bezier(.16,.84,.44,1.05) both;
+}
+.dark .fi-modal-window::before,
+.dark .fi-modal-window::after {
+  content: '';
+  position: absolute;
+  width: 22px; height: 22px;
+}
+.dark .fi-modal-window::before { top: 0; left: 0; border-top: 1.5px solid var(--vermilion); border-left: 1.5px solid var(--vermilion); }
+.dark .fi-modal-window::after  { bottom: 0; right: 0; border-bottom: 1.5px solid var(--vermilion); border-right: 1.5px solid var(--vermilion); }
+
+/* ============================ Notifications ========================= */
+.dark .fi-no-notification {
+  background: var(--parchment) !important;
+  border: 1px solid rgba(0,0,0,.15) !important;
+  border-radius: 2px !important;
+  color: var(--ink) !important;
+  box-shadow: 0 18px 40px -10px rgba(0,0,0,.55), 2px 2px 0 var(--vermdeep);
+  animation: studio-rise .35s cubic-bezier(.16,.84,.44,1.05) both;
+  position: relative;
+}
+.dark .fi-no-notification::before {
+  /* a tiny vermilion pin */
+  content: '';
+  position: absolute; top: -6px; left: 12px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: radial-gradient(50% 50% at 35% 30%, rgba(255,255,255,.55), transparent 60%), var(--vermilion);
+  box-shadow: 0 3px 5px rgba(0,0,0,.4);
+}
+
+/* ============================ Scrollbar ============================= */
+.dark ::-webkit-scrollbar { width: 10px; height: 10px; }
+.dark ::-webkit-scrollbar-track { background: transparent; }
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(59, 111, 246, .55);
+  border-radius: 0;
+  border: 2px solid var(--ink);
+}
+.dark ::-webkit-scrollbar-thumb:hover { background: var(--vermilion); }
+
+/* ============================ Page header =========================== */
+.dark .fi-header-heading {
+  font-family: 'Clash Display', ui-sans-serif, sans-serif !important;
+  font-style: italic;
+  font-weight: 500;
+  font-variation-settings: 'opsz' 144;
+}
+
+/* ============================ Filament breadcrumbs ================== */
+.dark .fi-breadcrumbs {
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 11px;
+  color: var(--bone-dim);
+}
+
+/* ============================ Selection chips ======================= */
+.dark .fi-dropdown-panel,
+.dark .fi-dropdown-list {
+  background: rgba(22, 22, 28, .94) !important;
+  border: 1px solid var(--rule-strong) !important;
+  border-radius: 4px !important;
+}
+
+/* Tiny ruled-paper effect on table rows */
+.dark .fi-ta-table tbody tr:nth-child(odd) td { background-color: rgba(233,226,208,.012); }
