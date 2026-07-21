@@ -31,6 +31,10 @@ export interface Project {
   problem?: string | null
   solution?: string | null
   gallery?: string[]
+  /** UX case-study metadata — category tag, human-readable timeline, and role bullet points. */
+  category?: string | null
+  timeline?: string | null
+  role_points?: string[]
 }
 
 export interface Experience {

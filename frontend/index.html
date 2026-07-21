@@ -8,17 +8,13 @@
     <meta name="description" content="Majdi Al-Kediwi — UX & Product Design Lead. Featured projects, career experience, certificates and education." />
     <title>Majdi Al-Kediwi — UX & Product Design Lead</title>
 
-    <!-- Set the theme class before first paint to avoid a flash -->
+    <!-- Force dark mode always — light mode disabled -->
     <script>
       (function () {
         try {
-          var key = 'majdy.theme';
-          var stored = localStorage.getItem(key);
-          var dark = stored ? stored === 'dark'
-            : window.matchMedia('(prefers-color-scheme: dark)').matches;
           var root = document.documentElement;
-          root.classList.toggle('dark', dark);
-          root.style.colorScheme = dark ? 'dark' : 'light';
+          root.classList.add('dark');
+          root.style.colorScheme = 'dark';
         } catch (e) {}
       })();
     </script>

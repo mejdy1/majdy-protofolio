@@ -13,11 +13,13 @@
   body {
     @apply bg-bg text-text antialiased min-h-screen;
     font-family: 'Satoshi', ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.0625rem; /* 17px — slightly larger base for comfortable reading */
+    line-height: 1.7;
     overflow-x: clip;
   }
 
   /* lock background scroll while the mobile drawer is open */
-  html.menu-open, html.menu-open body { overflow: hidden; }
+  html.menu-open, html.menu-open body { overflow: hidden; touch-action: none; }
 
   h1, h2, h3, .display {
     font-family: 'Clash Display', ui-sans-serif, system-ui, sans-serif;

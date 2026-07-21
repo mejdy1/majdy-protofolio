@@ -55,6 +55,13 @@ export const projects: Project[] = [
       '<p>Managing complex epidemiological datasets during public health crises without a unified digital tool made real-time crisis response, data visualization, and operational efficiency highly challenging for decision-makers.</p>',
     solution:
       '<p>Co-founded and led the UX strategy for a complex data-driven tracking system that successfully translates massive epidemiological data into intuitive, real-time crisis management dashboards, backed by a robust and highly accessible unified Design System.</p><ul><li>Led the technical project roadmap and sprint planning for the enterprise-level system</li><li>Created and maintained a comprehensive Design System ensuring strict engineering compliance, UI consistency, and high accessibility</li><li>Managed cross-functional teams of developers and researchers to translate public sector workflows into seamless digital solutions</li></ul>',
+    category: 'Data Platform · Crisis Management',
+    timeline: 'Mar 2025 – Present',
+    role_points: [
+      'Led the technical project roadmap and sprint planning for the enterprise-level epidemiological tracking platform',
+      'Built and maintained a comprehensive Design System with strict engineering compliance, UI consistency, and high accessibility',
+      'Managed cross-functional teams of developers and researchers to translate public sector workflows into seamless digital solutions',
+    ],
     gallery: [
       '/projects/rasid-map.png',
       '/projects/rasid-banner.png',
@@ -87,6 +94,13 @@ export const projects: Project[] = [
       '<p>Traditional supermarket shopping and checkout workflows lacked efficient automation, demanding a strategic solution that balances advanced voice user interface (VUI) design with physical hardware feasibility and user adoption challenges.</p>',
     solution:
       '<p>Directed the end-to-end product design lifecycle of an AI-powered supermarket platform, leveraging deep user research, iterative prototyping, and usability engineering to optimize workflows and maximize user adoption.</p><ul><li>Balanced advanced Voice User Interface (VUI) system design with complex hardware constraints</li><li>Conducted extensive user research and iterative usability testing phases to refine the product</li><li>Created high-fidelity prototypes to streamline system workflows and enhance consumer interaction</li></ul>',
+    category: 'Product Design · AI / VUI',
+    timeline: 'Jan 2025 – Jun 2026',
+    role_points: [
+      'Balanced advanced Voice User Interface (VUI) design with complex hardware constraints',
+      'Conducted extensive user research and iterative usability testing to refine product adoption',
+      'Created high-fidelity prototypes that streamlined system workflows and consumer interaction',
+    ],
     gallery: [
       '/projects/arabatech-interface.png',
       '/projects/arabatech-interface-2.png',
