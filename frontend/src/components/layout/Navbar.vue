@@ -101,7 +101,7 @@ onBeforeUnmount(() => {
           @click="openMenu"
           class="grid h-10 w-10 place-items-center rounded-full border border-line/15 text-text2 transition-colors hover:border-accent/40 hover:text-accent md:hidden"
           aria-label="Open menu"
-          aria-expanded="isMenuOpen"
+          :aria-expanded="isMenuOpen ? 'true' : 'false'"
         >
           <Icon icon="lucide:menu" class="h-5 w-5" />
         </button>
