@@ -12,5 +12,7 @@ export default defineConfig({
   server: {
     port: 5273,
     strictPort: true,
+    // the design checks keep screenshots and Chrome profiles here; never watch them
+    watch: { ignored: ['**/.taste-skill/**'] },
   },
 })

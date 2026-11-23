@@ -5,3 +5,6 @@ dist-ssr
 .DS_Store
 .vite
 node_modules/.tmp
+
+# design checks (screenshots, Chrome profiles)
+.taste-skill/
